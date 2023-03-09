@@ -1,5 +1,5 @@
-# I<sup>2</sup>-SDF: Intrinsic Indoor Scene Reconstruction and Editing via Raytracing in Neural SDFs
-### [Project Page](https://jingsenzhu.github.io/invrend/) | [Paper (Soon)](#) | [Dataset (Soon)](#)
+# I<sup>2</sup>-SDF: Intrinsic Indoor Scene Reconstruction and Editing via Raytracing in Neural SDFs (CVPR 2023)
+### [Project Page](https://jingsenzhu.github.io/i2-sdf/) | [Paper (Soon)](#) | [Dataset (Soon)](#)
 
 We will release the code and data soon.
 

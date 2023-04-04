@@ -1,8 +1,33 @@
+**News**
+
+- `04/04/2023` dataset preview release: 2 synthetic scenes available
+
+**TODO**
+
+- [ ] Full dataset release
+- [ ] Code release for 3D reconstruction and novel view synthesis
+- [ ] Code release for intrinsic decomposition and scene editing
+
 # I<sup>2</sup>-SDF: Intrinsic Indoor Scene Reconstruction and Editing via Raytracing in Neural SDFs (CVPR 2023)
-### [Project Page](https://jingsenzhu.github.io/i2-sdf/) | [Paper](https://arxiv.org/abs/2303.07634) | [Dataset (Soon)](#)
+
+### [Project Page](https://jingsenzhu.github.io/i2-sdf/) | [Paper](https://arxiv.org/abs/2303.07634) | [Dataset](https://mega.nz/folder/jdhDnTqL#Ija678SU2Va_JJOiwqmdEg)
 
 ## Brewing🍺, code coming soon.
 
-## Abstract
+## Dataset
 
-In this work, we present I<sup>2</sup>​-SDF, a new method for intrinsic indoor scene reconstruction and editing using differentiable Monte Carlo raytracing on neural signed distance fields (SDFs). Our holistic neural SDF-based framework jointly recovers the underlying shapes, incident radiance and materials from multi-view images. We introduce a novel bubble loss for fine-grained small objects and error-guided adaptive sampling scheme to largely improve the reconstruction quality on large-scale indoor scenes. Further, we propose to decompose the neural radiance field into spatially-varying material of the scene as a neural field through surface-based, differentiable Monte Carlo raytracing and emitter semantic segmentations, which enables physically based and photorealistic scene relighting and editing applications. Through a number of qualitative and quantitative experiments, we demonstrate the superior quality of our method on indoor scene reconstruction, novel view synthesis, and scene editing compared to state-of-the-art baselines.
+We provide a high-quality synthetic indoor scene multi-view dataset, with ground truth camera pose and geometry annotations. See [HERE](DATA_CONVENTION.md) for date conventions. Click [HERE](https://mega.nz/folder/jdhDnTqL#Ija678SU2Va_JJOiwqmdEg) to download.
+
+## Citation
+
+If you find our work is useful, please consider cite:
+
+```
+@inproceedings{zhu2023i2sdf,
+    title = {I$^2$-SDF: Intrinsic Indoor Scene Reconstruction and Editing via Raytracing in Neural SDFs},
+    author = {Jingsen Zhu and Yuchi Huo and Qi Ye and Fujun Luan and Jifan Li and Dianbing Xi and Lisha Wang and Rui Tang and Wei Hua and Hujun Bao and Rui Wang},
+    booktitle = {CVPR},
+    year = {2023}
+}
+```
+

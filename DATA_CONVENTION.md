@@ -18,7 +18,9 @@ scan<scan_id>/
 	material/ -> {:04d}_kd.exr, {:04d}_ks.exr, {:04d}_rough.exr # diffuse, specular albedo and roughness
 ```
 
-Note that not all scenes contain emitter mask and material information. Only scenes with "relight" in the name are relightable.
+Zeros areas in the depth maps and normal maps indicate invalid areas such as windows.
+
+Note that not all areas inside the scenes use the GGX material model. We'll provide a mask of the invalid areas.
 
 ### Camera Information
 
@@ -42,3 +44,7 @@ im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB) # cv2 reads image in BGR shape, convert
 ```
 
 We suggest using [tev](https://github.com/Tom94/tev) to preview HDR `.exr` images conveniently.
+
+### About Mesh
+
+Due to copyright issues, we could not release the original 3D mesh of our synthetic scenes. Instead, we'll provide a point cloud sampled from the GT mesh to enable 3D reconstruction evaluations.

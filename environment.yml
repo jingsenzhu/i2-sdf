@@ -1,0 +1,33 @@
+name: i2sdf
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - cudatoolkit=11.3.1=h9edb442_10
+  - ffmpeg=4.3=hf484d3e_0
+  - numpy=1.23.5=py39h14f4228_0
+  - pip=23.0.1=py39h06a4308_0
+  - python=3.9.16=h7a1cb2a_2
+  - pytorch=1.12.1=py3.9_cuda11.3_cudnn8.3.2_0
+  - torchaudio=0.12.1=py39_cu113
+  - torchvision=0.13.1=py39_cu113
+  - pip:
+    - fast-pytorch-kmeans==0.1.9
+    - ffmpeg-python==0.2.0
+    - gputil==1.4.0
+    - lpips==0.1.4
+    - open3d==0.17.0
+    - opencv-python==4.7.0.72
+    - pymcubes==0.1.4
+    - pytorch-lightning==1.9.0
+    - pyyaml==6.0
+    - rich==13.3.3
+    - scikit-image==0.20.0
+    - scikit-learn==1.2.2
+    - scipy==1.9.1
+    - tensorboard==2.12.0
+    - tensorboardx==2.6
+    - torchmetrics==0.11.4
+    - tqdm==4.65.0
+    - trimesh==3.21.4

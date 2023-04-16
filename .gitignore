@@ -1,6 +1,5 @@
 data/synthetic
 exps
-config
 __pycache__
 archive
 tmp*

@@ -1,0 +1,74 @@
+train:
+    expname: synthetic
+    learning_rate: 5.0e-4
+    steps: 200000
+    checkpoint_freq: 10000
+    plot_freq: 500
+    split_n_pixels: 12000
+    batch_size: 1600
+    pdf_criterion: DEPTH
+
+plot:
+    plot_nimgs: 1
+
+loss:
+    eikonal_weight: 0.1
+    smooth_weight: 0.01
+    smooth_iter: 150000
+    depth_weight: 0.1
+    normal_weight: 0.05
+    bubble_weight: 0.5
+    min_bubble_iter: 50000
+    max_bubble_iter: 150000
+
+dataset:
+    data_dir: synthetic
+    img_res: [480, 640]
+    downsample: 2
+    pdf_prune: 0.05
+    pdf_max: 0.2
+
+model:
+    feature_vector_size: 256
+    scene_bounding_sphere: 3.0
+    implicit_network:
+        d_in: 3
+        d_out: 1
+        dims: [ 256, 256, 256, 256, 256, 256, 256, 256 ]
+        geometric_init: True
+        bias: 0.6
+        skip_in: [4]
+        weight_norm: True
+        embed_type: 'positional'
+        multires: 6
+    
+    rendering_network:
+        # mode: idr
+        # d_in: 9
+        # Don't find actual differences between 'nerf' and 'idr' mode
+        # Choose 'nerf' mode for a slight faster performance
+        mode: nerf
+        d_in: 3
+        d_out: 3
+        dims: [ 256, 256, 256, 256 ]
+        weight_norm: True
+        embed_type: 'positional'
+        multires: 4
+    
+    density:
+        params_init:
+            beta: 0.1
+        
+        beta_min: 0.0001
+    
+    ray_sampler:
+        near: 0.0
+        N_samples: 64
+        N_samples_eval: 128
+        N_samples_extra: 32
+        eps: 0.1
+        beta_iters: 10
+        max_total_iters: 5
+        N_samples_inverse_sphere: 32
+        add_tiny: 1.0e-6
+

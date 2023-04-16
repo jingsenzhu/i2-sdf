@@ -38,6 +38,8 @@ We provide a high-quality synthetic indoor scene multi-view dataset, with ground
 python main_recon.py --conf config/<config_file>.yml --scan_id <scan_id> -d <gpu_id> -v <version>
 ```
 
+Note: `config/synthetic.yml` doesn't contain light mask network, while `config/synthetic_light.yml` contains.
+
 ### Evaluation
 
 #### Novel view synthesis

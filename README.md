@@ -85,4 +85,4 @@ If you find our work is useful, please consider cite:
 
 - This repository is built upon [Pytorch lightning](https://lightning.ai/).
 - Thanks to Lior Yariv for her excellent work [VolSDF](https://lioryariv.github.io/volsdf/).
-- Thanks to [Scalable-NISR](https://xchaowu.github.io/papers/scalable-nisr/) team for providing there real-world dataset.
+- Thanks to [Scalable-NISR](https://xchaowu.github.io/papers/scalable-nisr/) team for providing their real-world dataset.

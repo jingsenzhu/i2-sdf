@@ -38,7 +38,9 @@ We provide a high-quality synthetic indoor scene multi-view dataset, with ground
 python main_recon.py --conf config/<config_file>.yml --scan_id <scan_id> -d <gpu_id> -v <version>
 ```
 
-Note: `config/synthetic.yml` doesn't contain light mask network, while `config/synthetic_light.yml` contains.
+Note: `config/synthetic.yml` doesn't contain light mask network, while `config/synthetic_light_mask.yml` contains.
+
+If you run out of GPU memory, try to reduce the `split_n_pixels` (i.e. validation batch size), `batch_size` in the config. The default parameters are evaluated under RTX A6000 (48GB). For RTX 3090 (24GB), try to set `split_n_pixels` 5000.
 
 ### Evaluation
 

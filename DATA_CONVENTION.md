@@ -28,6 +28,12 @@ The `cameras.npz` contains each image's associated camera projection matrix `'wo
 
 The normalization matrices may not be readily available in `cameras.npz`. You can manually run `data/normalize_cameras.py` to generate `cameras_normalize.npz`. Since our method requires the entire scene to be within a radius-3 bounding sphere, we suggest normalizing cameras by radius 2.0 or 2.5.
 
+An example of running `normalize_cameras.py`:
+
+```shell
+python normalize_cameras.py --id <scan_id> -n <synthetic/real/...> -r 2.0
+```
+
 Note that we follow **OpenCV camera coordinate system** (X right, Y downwards, Z into the image plane).
 
 ### About EXR format

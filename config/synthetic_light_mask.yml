@@ -10,6 +10,7 @@ train:
 
 plot:
     plot_nimgs: 1
+    grid_boundary: [-1.5, 1.5]
 
 loss:
     eikonal_weight: 0.1

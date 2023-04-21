@@ -2,12 +2,18 @@
 
 - `04/04/2023` dataset preview release: 2 synthetic scenes available
 - `15/04/2023` code release: 3D reconstruction and novel view synthesis part
+- `21/04/2023` dataset release: real data
 
 **TODO**
 
 - [ ] Full dataset release
 - [x] Code release for 3D reconstruction and novel view synthesis
 - [ ] Code release for intrinsic decomposition and scene editing
+
+**Dataset released**
+
+- Synthetic: `kitchen_0`, `bedroom_relight_0`, more scenes to be released
+- Real: `inria_livingroom`, `nisr_livingroom`, `nisr_bar_0`, `nisr_bar_1`, release complete
 
 # I<sup>2</sup>-SDF: Intrinsic Indoor Scene Reconstruction and Editing via Raytracing in Neural SDFs (CVPR 2023)
 

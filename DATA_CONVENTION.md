@@ -36,6 +36,12 @@ python normalize_cameras.py --id <scan_id> -n <synthetic/real/...> -r 2.0
 
 Note that we follow **OpenCV camera coordinate system** (X right, Y downwards, Z into the image plane).
 
+### About Real Dataset
+
+Our real dataset comes from [Inria](https://repo-sam.inria.fr/fungraph/deep-indoor-relight/) and [Scalable-NISR](https://xchaowu.github.io/papers/scalable-nisr/), with estimated depth from MVS tools and manually-labeled light masks (2 living room scenes). All depths has an absolute scale without needs of shifting like MonoSDF. All camera calibrations and depths are provided by the authors of [Scalable-NISR](https://xchaowu.github.io/papers/scalable-nisr/). We thank them for providing the datasets.
+
+Normal is not provided in the real dataset, and we find it sufficient for plausible reconstruction without a normal supervision in these scenes. Of course, you can estimate normal using any methods if you want to enable normal supervision.
+
 ### About EXR format
 
 We suggest using OpenCV to load an `.exr` format `float32` image:

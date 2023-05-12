@@ -36,6 +36,16 @@ python normalize_cameras.py --id <scan_id> -n <synthetic/real/...> -r 2.0
 
 Note that we follow **OpenCV camera coordinate system** (X right, Y downwards, Z into the image plane).
 
+### Dataset Format Conversion
+
+If you want to convert the dataset format to NeRF blender format, run `npz_to_blender.py`:
+
+```sh
+python npz_to_blender.py --root /path/to/dataset
+```
+
+The script will automatically scale all pose matrices to fit within a `[-1, 1]` bounding box.
+
 ### About Real Dataset
 
 Our real dataset comes from [Inria](https://repo-sam.inria.fr/fungraph/deep-indoor-relight/) and [Scalable-NISR](https://xchaowu.github.io/papers/scalable-nisr/), with estimated depth from MVS tools and manually-labeled light masks (2 living room scenes). All depths has an absolute scale without needs of shifting like MonoSDF. All camera calibrations and depths are provided by the authors of [Scalable-NISR](https://xchaowu.github.io/papers/scalable-nisr/). We thank them for providing the datasets.

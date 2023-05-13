@@ -42,7 +42,7 @@ def scale_pose(pose, scale, offset):
 
 def load_K_Rt_from_P(filename, P=None):
     if P is None:
-        lines = open(filename).read().splitlinescale_pose()
+        lines = open(filename).read().splitlines()
         if len(lines) == 4:
             lines = lines[1:]
         lines = [[x[0], x[1], x[2], x[3]] for x in (x.split(" ") for x in lines)]
@@ -67,6 +67,7 @@ def load_K_Rt_from_P(filename, P=None):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--root', required=True)
+    parser.add_argument('--scale', action='store_true')
     args = parser.parse_args()
     os.chdir(os.path.join(args.root))
 
@@ -74,7 +75,7 @@ def main():
     n_images = len(os.listdir(image_dir))
     val_dir = 'val'
     n_val = len(os.listdir(val_dir))
-    os.makedirscale_pose('depths', exist_ok=True)
+    os.makedirs('depths', exist_ok=True)
 
     cam_file = 'cameras.npz'
     camera_dict = np.load(cam_file)
@@ -97,7 +98,8 @@ def main():
     train_json['fl_x'] = intrinsics[0][0]
     train_json['w'] = int(intrinsics[0, 2] * 2)
 
-    scale, offset = get_offset(pose_all)
+    if args.scale:
+        scale, offset = get_offset(pose_all)
 
     # train_json['enable_depth_loading'] = True
     # train_json['integer_depth_scale'] = 1 / 65535
@@ -113,18 +115,20 @@ def main():
         depth = cv2.imread(os.path.join('depth', '{:04d}.exr'.format(i)), -1)
         cv2.imwrite(os.path.join('depths', '{:04d}.exr'.format(i)), depth / scale.max())
 
+        pose = pose_all[i].tolist() if not args.scale else scale_pose(pose_all[i], scale.max(), offset)
         frame = {
             'file_path': f'./image/{i:04d}',
             'depth_path': f'./depths/{i:04d}.exr',
-            'transform_matrix': scale_pose(pose_all[i], scale.max(), offset)
+            'transform_matrix': pose
         }
         frames.append(frame)
 
     for i in tqdm(range(n_val)):
         frames = test_json['frames']
+        pose = pose_all[i + n_images].tolist() if not args.scale else scale_pose(pose_all[i + n_images], scale.max(), offset)
         frame = {
             'file_path': f'./val/{i:04d}',
-            'transform_matrix': scale_pose(pose_all[i + n_images], scale.max(), offset)
+            'transform_matrix': pose
         }
         frames.append(frame)
 

@@ -111,14 +111,14 @@ def main():
 
     for i in tqdm(range(n_images)):
         frames = train_json['frames']
-
-        depth = cv2.imread(os.path.join('depth', '{:04d}.exr'.format(i)), -1)
-        cv2.imwrite(os.path.join('depths', '{:04d}.exr'.format(i)), depth / scale.max())
+        if args.scale:
+            depth = cv2.imread(os.path.join('depth', '{:04d}.exr'.format(i)), -1)
+            cv2.imwrite(os.path.join('depths', '{:04d}.exr'.format(i)), depth / scale.max())
 
         pose = pose_all[i].tolist() if not args.scale else scale_pose(pose_all[i], scale.max(), offset)
         frame = {
             'file_path': f'./image/{i:04d}',
-            'depth_path': f'./depths/{i:04d}.exr',
+            'depth_path': f'./depths/{i:04d}.exr' if args.scale else f'./depth/{i:04d}.exr',
             'transform_matrix': pose
         }
         frames.append(frame)

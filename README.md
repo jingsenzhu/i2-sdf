@@ -1,3 +1,7 @@
+**Note on data**
+
+The original dataset download link via MEGA cloud storage is no longer valid. The updated dataset download links are contained in [this CSV file](i2-sdf-dataset-links.csv).
+
 **News**
 
 - `04/04/2023` dataset preview release: 2 synthetic scenes available
@@ -6,7 +10,7 @@
 
 **TODO**
 
-- [ ] Full dataset release
+- [x] Full dataset release
 - [x] Code release for 3D reconstruction and novel view synthesis
 - [ ] Code release for intrinsic decomposition and scene editing
 
